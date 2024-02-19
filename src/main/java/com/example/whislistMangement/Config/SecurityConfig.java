@@ -25,9 +25,8 @@ public class SecurityConfig{
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf((csrf)->csrf.disable())
-                .authorizeHttpRequests(auth->auth.requestMatchers("/api/wishlists").authenticated()
-                        .requestMatchers("/api/wishlists/**").authenticated()
-                        .requestMatchers("/user/add").permitAll()
+                .authorizeHttpRequests(auth->auth.requestMatchers("/api/**").authenticated()
+                        .requestMatchers("/user/sign-in").permitAll()
                         .requestMatchers("/auth/login").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(withDefaults())
