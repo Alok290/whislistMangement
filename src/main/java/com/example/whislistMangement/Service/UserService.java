@@ -42,24 +42,5 @@ public class UserService {
 
     }
 
-    public List<wishlistResponseDto> getWishlistByUsername(String username) throws Exception {
-        Optional<User> optionalUser = userRepository.findByUsername(username);
-        if(!optionalUser.isPresent()){
-            throw new UserNotPresent("user name is invalid");
-        }
-        User user = optionalUser.get();
-        Wishlist wishlist = user.getWishlist();
-        if(wishlist==null){
-            return new ArrayList<>();
-        }
-        List<Product> list = wishlist.getProductList();
-        List<wishlistResponseDto>  responseDtoList= new ArrayList<>();
-        for(Product product :list){
-            wishlistResponseDto Response = ProductTransformation.productToWishlistResponseDto(product);
-            responseDtoList.add(Response);
-        }
 
-
-        return responseDtoList;
-    }
 }

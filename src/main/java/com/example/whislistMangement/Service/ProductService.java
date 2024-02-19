@@ -1,6 +1,7 @@
 package com.example.whislistMangement.Service;
 
 import com.example.whislistMangement.Dtos.RequestDto.productRequestDto;
+import com.example.whislistMangement.Dtos.ResponseDto.wishlistResponseDto;
 import com.example.whislistMangement.Entity.Product;
 import com.example.whislistMangement.Entity.User;
 import com.example.whislistMangement.Entity.Wishlist;
@@ -70,5 +71,26 @@ public class ProductService {
         Product product = optionalProduct.get();
         productRepository.delete(product);
         return "one item deleted";
+    }
+
+    public List<wishlistResponseDto> getWishlistByUsername(String username) throws Exception {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        if(!optionalUser.isPresent()){
+            throw new UserNotPresent("user name is invalid");
+        }
+        User user = optionalUser.get();
+        Wishlist wishlist = user.getWishlist();
+        if(wishlist==null){
+            return new ArrayList<>();
+        }
+        List<Product> list = wishlist.getProductList();
+        List<wishlistResponseDto>  responseDtoList= new ArrayList<>();
+        for(Product product :list){
+            wishlistResponseDto Response = ProductTransformation.productToWishlistResponseDto(product);
+            responseDtoList.add(Response);
+        }
+
+
+        return responseDtoList;
     }
 }
