@@ -24,7 +24,7 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("invalid");
         }
 
-        return
+        return user.get();
     }
 
     @Bean
