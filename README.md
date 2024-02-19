@@ -23,3 +23,16 @@
   * build connection of database craete database in mySQL and make connection
   * Run project using maven
   * now you can test api from postman
+
+  ##  Api Documentation
+  ### The following API endpoints are available:
+  
+* POST /user/sign-in: Create a new user.
+* POST /auth/login: Authenticates the user or login as user.
+* GET /api/get-wishlist: Retrieve a user's wishlist.
+* POST /api/addItem: Create a new wishlist item.
+* DELETE /api/deleteItem/{id}: Remove a wishlist item by ID.
+  
+ ###   You can test APIs using Postman.
+
+  
