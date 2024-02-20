@@ -7,7 +7,6 @@
 * Setup Instruction
 * Api Documentation
 * Testing
-* Api screenShot
 
   ## Introduction
   The Wishlist Management System is an innovative web application designed to empower users in their pursuit of desires. With its intuitive interface, users can effortlessly create, organize, and monitor personalized wishlists. Whether dreaming of a new gadget, a travel adventure, or a cozy book, this system provides a digital canvas for capturing aspirations. The RESTful API endpoints facilitate seamless interactions, allowing users to add, edit, or delete wishlist items
@@ -34,5 +33,41 @@
 * DELETE /api/deleteItem/{id}: Remove a wishlist item by ID.
   
  ###   You can test APIs using Postman.
+ * for post user sign-in
+   - Create a new request in Postman.
+   - Set the request URL to http://localhost:8088/user/sign-in.
+   - Choose the POST HTTP method.
+   - Go to body->raw then select "JSON" from the type dropdown. After that provide user details in JSON form like username and password and other deatails.
+   - Send the request.
+ * for post user login
+   - Create a new request in Postman.
+   - Set the request URL to http://localhost:8088/auth/login.
+   - Choose the POST HTTP method.
+   - Go to body->raw then select "JSON" from the type dropdown. After that provide user details in JSON form like username and password.
+   - Send the request.
+ * for Get user's wishlist 
+   - Create a new request in Postman.
+   - Set the request URL to http://localhost:8088/api/get-wishlist.
+   - Choose the POST HTTP method.
+   - Go to Param-> and give key as 'username' and value is your actual username like key->username, value->"alok".
+   - Send the request.
+ * for Delete  wishlist item 
+   - Create a new request in Postman.
+   - Set the request URL to http://localhost:8088/api/deleteItem/{id}.
+   - Choose the POST HTTP method.
+   - give id as url like http://localhost:8088/api/deleteItem/1  here id is 1 so we get wishlist whose user id 1.
+   - Send the request.
+  
+ * for post user sign-in
+   - Create a new request in Postman.
+   - Set the request URL to http://localhost:8088/api/addItem.
+   - Choose the POST HTTP method.
+   - Go to body->raw then select "JSON" from the type dropdown. After that provide item details in JSON form like product name, description, price etc
+   - Send the request.
+ ## Testing
+  Unit tests are a fundamental aspect of software development. They serve as the first line of defense against defects, ensuring that individual components of an application function correctly. Here’s an elaboration on the paragraph you provided
+  Unit tests are automated tests designed to verify the correctness of small, isolated units of code (usually functions or methods) in isolation.
+   They validate whether each unit behaves as expected, adhering to its specified functionality.
+  Unit tests isolate specific code segments, allowing developers to focus on individual units without considering the entire system.
 
   
